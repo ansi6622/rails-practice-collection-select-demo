@@ -1,4 +1,7 @@
 <div class="page-header">
+  <div class="pull-right">
+    <%= link_to "New Toy!", new_toy_path, class: "btn btn-info" %>
+  </div>
   <h1>Toys!</h1>
 </div>
 
@@ -7,6 +10,7 @@
     <tr>
       <th> Toy Name </th>
       <th> Cat </th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -16,7 +20,12 @@
           <%= link_to toy.name, toy_path(toy) %>
         </td>
         <td>
-          <em>Replace this with a link to the cat who owns this toy</em>
+          <% if toy.cat %>
+            <%= link_to toy.cat.name, cat_path(toy.cat) %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to "edit", edit_toy_path(toy) %>
         </td>
       </tr>
     <% end %>

@@ -1,0 +1,14 @@
+<%= form_for @toy do |f| %>
+
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+
+  <!-- insert collection_select here -->
+
+  <div class="form-group">
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+
+<% end %>
