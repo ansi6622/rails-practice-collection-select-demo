@@ -5,5 +5,13 @@
 <h3>This cat's toys are...</h3>
 
 <div class="well">
-  <em>Replace this with a list of the toys that belong to this cat</em>
+  <ul>
+    <% if @cat.toys.any? %>
+      <% @cat.toys.each do |toy| %>
+        <li><%= toy.name %></li>
+      <% end %>
+    <% else %>
+      <li>OH NOES! I has no toize.</li>
+    <% end %>
+  </ul>
 </div>
